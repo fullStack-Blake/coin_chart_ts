@@ -1,4 +1,4 @@
-import  { createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 // theme is also fully typed
 export const GlobalStyle = createGlobalStyle`
@@ -29,8 +29,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: ${props => props.theme.colors.bgColor};
-	color: ${props => props.theme.colors.main};
+	box-sizing: border-box;
+	background-color: ${(props) => props.theme.colors.bgColor};
+	color: ${(props) => props.theme.colors.main};
 }
 ol, ul {
 	list-style: none;
@@ -46,5 +47,9 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+	color: inherit;
 }
 `;
