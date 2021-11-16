@@ -3,3 +3,9 @@ export const fetchCoins = () => {
     res.json()
   );
 };
+
+export const fetchCoinInfo = (coinID: string) => {
+  return fetch(`https://api.coinpaprika.com/v1/coins/${coinID}`).then((res) =>
+    res.json()
+  );
+};
