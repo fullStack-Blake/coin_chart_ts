@@ -142,7 +142,7 @@ const Coin = () => {
   const MatchChart = useRouteMatch(`/${coinID}/chart`);
   const MatchPrice = useRouteMatch(`/${coinID}/price`);
   const info = useQuery<IInfo>("coin-info", () => fetchCoinInfo(coinID));
-  const price = useQuery<IPrice>("coin-info", () => fetchCoinPrice(coinID));
+  const price = useQuery<IPrice>("coin-price", () => fetchCoinPrice(coinID));
 
   // const [loading, setLoading] = useState(true);
   // const [info, setInfo] = useState<IInfo>();
@@ -165,32 +165,36 @@ const Coin = () => {
   return (
     <Container>
       <Title>
-        {state?.name ? state.name : loading ? "Loading..." : info?.name}
+        {state?.name
+          ? state.name
+          : info.isLoading
+          ? "Loading..."
+          : info.data?.name}
       </Title>
-      {loading ? null : (
+      {info.isLoading ? null : (
         <>
           <CoinDetail>
             <Line>
               <Description>
                 <ItemCategory>Symbol</ItemCategory>
-                <Item>{info?.symbol}</Item>
+                <Item>{info.data?.symbol}</Item>
               </Description>
               <Description>
                 <ItemCategory>Rank</ItemCategory>
-                <Item># {info?.rank}</Item>
+                <Item># {info.data?.rank}</Item>
               </Description>
             </Line>
             <Line>
               <Description>
                 <ItemCategory>Total Supply</ItemCategory>
-                <Item>{price?.total_supply}</Item>
+                <Item>{price.data?.total_supply}</Item>
               </Description>
               <Description>
                 <ItemCategory>Circulating Supply</ItemCategory>
-                <Item># {price?.circulating_supply}</Item>
+                <Item>{price.data?.circulating_supply}</Item>
               </Description>
             </Line>
-            <Description>{info?.description}</Description>
+            <Description>{info.data?.description}</Description>
             <SwitchContainer>
               <SwitchButton isActive={MatchPrice !== null}>
                 <Link to={`/${coinID}/price`}>Price</Link>

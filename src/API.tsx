@@ -9,6 +9,7 @@ export const fetchCoinInfo = (coinID: string) => {
     res.json()
   );
 };
+
 export const fetchCoinPrice = (coinID: string) => {
   return fetch(`https://api.coinpaprika.com/v1/tickers/${coinID}`).then((res) =>
     res.json()
