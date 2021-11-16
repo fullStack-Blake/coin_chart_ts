@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding: 30px 20px;
+`;
 const Header = styled.header``;
 const CoinsList = styled.ul`
   padding: 10px;
