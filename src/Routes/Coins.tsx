@@ -58,7 +58,7 @@ const CoinWrapper = styled.div`
   align-items: center;
 `;
 
-interface CoinsInterface {
+interface ICoins {
   id: string;
   name: string;
   symbol: string;
@@ -69,10 +69,10 @@ interface CoinsInterface {
 }
 
 const Coins = () => {
-  const coins = useQuery<CoinsInterface[]>("coins", fetchCoins);
+  const coins = useQuery<ICoins[]>("coins", fetchCoins);
 
   // Before using react-query
-  // const [coins, setCoins] = useState<CoinsInterface[]>([]);
+  // const [coins, setCoins] = useState<ICoins[]>([]);
   // const [loading, setLoading] = useState(true);
   // useEffect(() => {
   //   (async () => {
