@@ -11,6 +11,9 @@ declare module "styled-components" {
       secondary: string;
       bgColor: string;
       accentColor: string;
+      black: string;
+      grey: string;
+      green: string;
     };
   }
 }

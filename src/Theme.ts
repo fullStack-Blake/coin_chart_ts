@@ -9,6 +9,9 @@ const defaultTheme: DefaultTheme = {
     main: "#C3DBC5",
     secondary: "#E8DCB9",
     accentColor: "#F2CEE6",
+    black: "black",
+    grey: "grey",
+    green: "#1ADBC8",
   },
 };
 
